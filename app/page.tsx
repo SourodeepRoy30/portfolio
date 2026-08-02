@@ -1,65 +1,226 @@
-import Image from "next/image";
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="flex flex-col">
+      <section id="about" className="min-h-screen flex items-center justify-center px-8">
+        <div className="flex flex-col sm:flex-row items-center gap-10 max-w-3xl">
+          <img
+            src="/profile.jpg"
+            alt="Sourodeep Roy"
+            className="w-64 h-64 rounded-full object-cover border border-border"
+          />
+          <div className="text-center sm:text-left">
+            <h2 className="text-3xl mb-4">About Myself</h2>
+            <p className="text-foreground/90 leading-relaxed text-justify">
+              I'm Sourodeep Roy, a Data Science and Analytics graduate currently
+              focused on independent research in Retrieval-Augmented Generation and
+              Agentic AI systems. My interest lies in closing the gap between research
+              and deployment — building systems that don't just perform well on
+              benchmarks, but function reliably end to end, from retrieval and
+              reasoning through to a usable interface.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="resume" className="min-h-screen px-8 py-24 max-w-3xl mx-auto">
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mb-16"
+        >
+          <h2 className="text-3xl hover:text-accent transition-colors">
+            Journey so far ↗
+          </h2>
+        </a>
+
+        <div className="mb-12">
+          <h3 className="text-xl mb-6 text-accent">Education</h3>
+          <div className="mb-6">
+            <div className="flex justify-between flex-wrap gap-2">
+              <p className="font-medium">MSc Data Science & Analytics — Distinction</p>
+              <p className="text-muted text-sm">Sept 2024 – Sept 2025</p>
+            </div>
+            <p className="text-muted text-sm">University of Leeds, Leeds, UK</p>
+          </div>
+          <div>
+            <div className="flex justify-between flex-wrap gap-2">
+              <p className="font-medium">BTech Computer Science & Engineering — CGPA 8.56/10</p>
+              <p className="text-muted text-sm">Jul 2018 – Jun 2022</p>
+            </div>
+            <p className="text-muted text-sm">University of Engineering and Management, Kolkata, India</p>
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h3 className="text-xl mb-6 text-accent">Professional Experience</h3>
+          <div>
+            <div className="flex justify-between flex-wrap gap-2">
+              <p className="font-medium">Programmer Analyst — AI & Analytics</p>
+              <p className="text-muted text-sm">Aug 2022 – Jul 2024</p>
+            </div>
+            <p className="text-muted text-sm mb-3">Cognizant</p>
+            <ul className="list-disc list-outside ml-5 space-y-2 text-foreground/90 text-sm leading-relaxed">
+              <li>
+                Built production-grade data and analytics pipelines in Python and
+                PySpark/Spark SQL across 20+ heterogeneous sources, improving
+                ingestion latency by 40% and query performance by 25%.
+              </li>
+              <li>
+                Implemented 100+ automated data-quality and integrity checks with
+                end-to-end lineage traceability, reducing downstream discrepancies
+                by 30%.
+              </li>
+              <li>
+                Orchestrated end-to-end workflows using Apache Airflow, automating
+                80% of routine processing and sustaining 97% pipeline uptime.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section id="projects" className="min-h-screen px-8 py-24 max-w-3xl mx-auto">
+        <h2 className="text-3xl mb-12">Projects</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <a
+            href="#"
+            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
+          >
+            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
+              RAG Pipeline
+            </h3>
+            <p className="text-muted text-sm leading-relaxed mb-5">
+              A retrieval-augmented generation system with hybrid search and
+              reranking, built end to end from ingestion to a live query interface.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Python", "FastAPI", "pgvector", "LangChain"].map((tag) => (
+                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+
+          <a
+            href="#"
+            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
+          >
+            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
+              Agentic Assistant
+            </h3>
+            <p className="text-muted text-sm leading-relaxed mb-5">
+              A multi-agent system that plans, delegates, and executes research
+              tasks autonomously, with full tool-use visibility.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Python", "LangGraph", "FastAPI", "Groq"].map((tag) => (
+                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+
+          <a
+            href="#"
+            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
+          >
+            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
+              Credit Risk Intelligence Suite
+            </h3>
+            <p className="text-muted text-sm leading-relaxed mb-5">
+              Extended a production credit default model on 1.3M Lending Club loans
+              with LLM signal extraction, SHAP-grounded memo generation, and a
+              macro-driven early warning system.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Python", "XGBoost", "SHAP", "FinBERT", "Ollama", "WoE/IV"].map((tag) => (
+                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+
+          <a
+            href="#"
+            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
+          >
+            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
+              Intraday Volatility & Market Risk Forecasting
+            </h3>
+            <p className="text-muted text-sm leading-relaxed mb-5">
+              MSc dissertation (Distinction) modelling trade arrival intensity via
+              Weibull ACD to improve intraday volatility forecasting and tail-risk
+              calibration over standard GARCH.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["R", "Weibull ACD", "GARCH", "VaR/ES Backtesting"].map((tag) => (
+                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="interests" className="min-h-screen flex items-center justify-center px-8">
+        <div className="max-w-2xl text-center">
+          <h2 className="text-3xl mb-8">Research Interests</h2>
+          <p className="text-foreground/90 leading-relaxed">
+            My research interests center on retrieval-augmented generation and
+            agentic AI systems — particularly how to make them reliable enough to
+            trust in production, not just capable in a demo. I'm actively
+            developing my skills in multi-agent orchestration and tool use,
+            rigorous evaluation methods for LLM-based systems, and the MLOps
+            practices needed to deploy AI reliably at scale. The throughline
+            across my work, from hallucination evaluation in credit risk memos to
+            agentic research assistants, is treating evaluation and deployment as
+            first-class problems, not afterthoughts.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section id="socials" className="min-h-screen flex items-center justify-center px-8">
+        <div className="text-center">
+          <h2 className="text-3xl mb-10">Get in touch</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:sourodeeproy30@gmail.com"
+              className="group flex items-center gap-3 rounded-full border border-border px-6 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+            >
+              <FaEnvelope size={18} className="text-muted group-hover:text-accent transition-colors" />
+              <span className="text-sm">Email</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/sourodeeproy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 rounded-full border border-border px-6 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+            >
+              <FaLinkedin size={18} className="text-muted group-hover:text-accent transition-colors" />
+              <span className="text-sm">LinkedIn</span>
+            </a>
+
+            <a
+              href="https://github.com/SourodeepRoy30"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 rounded-full border border-border px-6 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+            >
+              <FaGithub size={18} className="text-muted group-hover:text-accent transition-colors" />
+              <span className="text-sm">GitHub</span>
+            </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
