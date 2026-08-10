@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bungee, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
-
+import { Analytics } from "@vercel/analytics/next";
 
 const bungee = Bungee({
   variable: "--font-heading",
@@ -33,6 +33,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Nav />
         {children}
+        <Analytics />
       </body>
     </html>
   );
