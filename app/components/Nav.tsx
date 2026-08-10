@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
@@ -14,41 +14,73 @@ const LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 60);
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    if (!scrolled) setOpen(false);
+  }, [scrolled]);
+
+  const showFullNav = !scrolled;
 
   return (
     <nav className="sticky top-0 z-50 px-8 py-5">
-      <div className="hidden md:flex justify-end gap-8 text-sm font-heading">
-        {LINKS.map((link) => (
-         <a 
-            key={link.href}
-            href={link.href}
-            className="text-muted hover:text-accent hover:scale-110 transition-all duration-200 inline-block"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-
-      <div className="md:hidden flex justify-end">
-        <button onClick={() => setOpen(!open)} aria-label="Toggle menu" className="text-foreground">
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="md:hidden flex flex-col items-end gap-4 mt-4 font-heading text-sm">
+      {showFullNav && (
+        <div className="hidden md:flex justify-end gap-8 text-sm font-heading">
           {LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
-              className="text-muted hover:text-accent transition-colors"
+              className="text-muted hover:text-accent hover:scale-110 transition-all duration-200 inline-block"
             >
               {link.label}
             </a>
           ))}
         </div>
       )}
+
+      <div className={`${showFullNav ? "md:hidden" : ""} flex justify-end relative`} ref={menuRef}>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          className="text-foreground hover:text-accent transition-colors"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {open && (
+          <div className="absolute top-10 right-0 min-w-[160px] rounded-xl border border-border bg-background/95 backdrop-blur-md py-3 flex flex-col shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]">
+            {LINKS.map((link) => (
+             <a 
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="font-heading text-sm text-muted hover:text-accent hover:bg-white/[.04] transition-colors px-5 py-2.5"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     </nav>
   );
 }
