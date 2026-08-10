@@ -1,4 +1,7 @@
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
+import { SiPython, SiFastapi, SiTensorflow, SiPandas, SiMysql } from "react-icons/si";
+import { Cloud } from "lucide-react";
+import NetworkAnimation from "./components/NetworkAnimation";
 
 export default function Home() {
   return (
@@ -25,16 +28,17 @@ export default function Home() {
       </section>
 
       <section id="resume" className="min-h-screen px-8 py-24 max-w-3xl mx-auto">
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mb-16"
-        >
-          <h2 className="text-3xl hover:text-accent transition-colors">
-            Journey so far ↗
-          </h2>
-        </a>
+        <div className="mb-16">
+          <h2 className="text-3xl mb-2">My Journey</h2>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-accent underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            View résumé (PDF)
+          </a>
+        </div>
 
         <div className="mb-12">
           <h3 className="text-xl mb-6 text-accent">Education</h3>
@@ -170,6 +174,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="skills" className="min-h-screen flex items-center justify-center px-8">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl mb-16 text-center">Skills</h2>
+          <div className="flex flex-wrap justify-center gap-10">
+            {[
+              { icon: SiPython, label: "Python" },
+              { icon: Cloud, label: "AWS" },
+              { icon: SiFastapi, label: "FastAPI" },
+              { icon: SiTensorflow, label: "TensorFlow" },
+              { icon: SiPandas, label: "Pandas" },
+              { icon: SiMysql, label: "SQL" },
+            ].map(({ icon: Icon, label }, i) => (
+              <div
+                key={label}
+                className="flex flex-col items-center gap-3 animate-[float_3s_ease-in-out_infinite]"
+                style={{ animationDelay: `${i * 0.3}s` }}
+              >
+                <div className="group w-20 h-20 rounded-full border border-border bg-white/[.02] flex items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:border-accent/40 hover:shadow-[0_15px_30px_-10px_rgba(94,234,212,0.25)]">
+                  <Icon size={32} className="text-foreground/80 group-hover:text-accent transition-colors" />
+                </div>
+                <span className="text-xs text-muted">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="interests" className="min-h-screen flex items-center justify-center px-8">
         <div className="max-w-2xl text-center">
           <h2 className="text-3xl mb-8">Research Interests</h2>
@@ -186,7 +217,9 @@ export default function Home() {
           </p>
         </div>
       </section>
-
+      <section className="h-64 md:h-96">
+        <NetworkAnimation />
+      </section>      
       <section id="socials" className="min-h-screen flex items-center justify-center px-8">
         <div className="text-center">
           <h2 className="text-3xl mb-10">Get in touch</h2>

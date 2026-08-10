@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Nunito, Inter } from "next/font/google";
-
+import { Bungee, Inter } from "next/font/google";
 import "./globals.css";
+import Nav from "./components/Nav";
 
-const nunito = Nunito({
+
+const bungee = Bungee({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: "400",
 });
 
 const inter = Inter({
@@ -26,18 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${inter.variable} h-full antialiased`}
+      className={`${bungee.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <nav className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
-          <div className="max-w-4xl mx-auto px-8 py-4 flex justify-center gap-8 text-sm">
-            <a href="#about" className="text-muted hover:text-accent transition-colors">About</a>
-            <a href="#resume" className="text-muted hover:text-accent transition-colors">Resume</a>
-            <a href="#projects" className="text-muted hover:text-accent transition-colors">Projects</a>
-            <a href="#interests" className="text-muted hover:text-accent transition-colors">Interests</a>
-            <a href="#socials" className="text-muted hover:text-accent transition-colors">Contact</a>
-          </div>
-        </nav>
+        <Nav />
         {children}
       </body>
     </html>
