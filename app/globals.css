@@ -2,10 +2,10 @@
 
 :root {
   --background: #000000;
-  --foreground: #e8e6e1;
-  --muted: #a8a8c8;
-  --accent: #8886ff;
-  --border: #ffffff26;
+  --foreground: #eaf2ff;
+  --muted: #93aed6;
+  --accent: #FFFFFF;
+  --border: #fcfbfb26;
 }
 
 @theme inline {
@@ -28,7 +28,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(0deg, #000000 0%, #3432c7 100%);
+  background: linear-gradient(0deg, #000000 0%, #056aef 100%);
   z-index: -2;
 }
 

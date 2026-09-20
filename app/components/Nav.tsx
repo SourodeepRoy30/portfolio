@@ -44,7 +44,7 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 px-8 py-5">
       {showFullNav && (
-        <div className="hidden md:flex justify-end gap-8 text-sm font-heading">
+        <div className="hidden md:flex justify-end gap-8 text-base font-heading">
           {LINKS.map((link) => (
             <a
               key={link.href}

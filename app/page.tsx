@@ -44,14 +44,14 @@ export default function Home() {
           <h3 className="text-xl mb-6 text-accent">Education</h3>
           <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2">
-              <p className="font-medium">MSc Data Science & Analytics — Distinction</p>
+              <p className="font-medium">MSc Data Science & Analytics (Distinction)</p>
               <p className="text-muted text-sm">Sept 2024 – Sept 2025</p>
             </div>
             <p className="text-muted text-sm">University of Leeds, Leeds, UK</p>
           </div>
           <div>
             <div className="flex justify-between flex-wrap gap-2">
-              <p className="font-medium">BTech Computer Science & Engineering — CGPA 8.56/10</p>
+              <p className="font-medium">BTech Computer Science & Engineering (CGPA 8.56/10)</p>
               <p className="text-muted text-sm">Jul 2018 – Jun 2022</p>
             </div>
             <p className="text-muted text-sm">University of Engineering and Management, Kolkata, India</p>
@@ -62,7 +62,7 @@ export default function Home() {
           <h3 className="text-xl mb-6 text-accent">Professional Experience</h3>
           <div>
             <div className="flex justify-between flex-wrap gap-2">
-              <p className="font-medium">Programmer Analyst — AI & Analytics</p>
+              <p className="font-medium">Programmer Analyst (AI & Analytics)</p>
               <p className="text-muted text-sm">Aug 2022 – Jul 2024</p>
             </div>
             <p className="text-muted text-sm mb-3">Cognizant</p>
