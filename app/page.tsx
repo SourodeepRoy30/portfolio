@@ -39,22 +39,33 @@ export default function Home() {
             View résumé (PDF)
           </a>
         </div>
-
         <div className="mb-12">
           <h3 className="text-xl mb-6 text-accent">Education</h3>
-          <div className="mb-6">
+
+          <div className="mb-8">
             <div className="flex justify-between flex-wrap gap-2">
-              <p className="font-medium">MSc Data Science & Analytics (Distinction)</p>
+              <p className="font-medium">
+                MSc Data Science & Analytics  [<span className="font-bold text-accent">Distinction</span>]
+              </p>
               <p className="text-muted text-sm">Sept 2024 – Sept 2025</p>
             </div>
-            <p className="text-muted text-sm">University of Leeds, Leeds, UK</p>
+            <p className="text-muted text-sm mt-1">University of Leeds, Leeds, UK</p>
+            <p className="text-sm text-foreground/90 mt-2">
+              <span className="font-bold">Relevant coursework:</span> Machine Learning, Deep Learning, Data Science, Statistical Theory and Methods
+            </p>
           </div>
+
           <div>
             <div className="flex justify-between flex-wrap gap-2">
-              <p className="font-medium">BTech Computer Science & Engineering (CGPA 8.56/10)</p>
+              <p className="font-medium">
+                BTech Computer Science & Engineering  [<span className="font-bold text-accent">CGPA: 8.56/10</span>]
+              </p>
               <p className="text-muted text-sm">Jul 2018 – Jun 2022</p>
             </div>
-            <p className="text-muted text-sm">University of Engineering and Management, Kolkata, India</p>
+            <p className="text-muted text-sm mt-1">University of Engineering and Management, Kolkata, India</p>
+            <p className="text-sm text-foreground/90 mt-2">
+              <span className="font-bold">Relevant coursework:</span> Artificial Intelligence, Big Data Analytics, Software Engineering, Design and Analysis of Algorithms
+            </p>
           </div>
         </div>
 
@@ -62,24 +73,35 @@ export default function Home() {
           <h3 className="text-xl mb-6 text-accent">Professional Experience</h3>
           <div>
             <div className="flex justify-between flex-wrap gap-2">
-              <p className="font-medium">Programmer Analyst (AI & Analytics)</p>
+              <p className="font-medium">Programmer Analyst [<span className="font-bold text-accent">AI & Analytics</span>]</p>
               <p className="text-muted text-sm">Aug 2022 – Jul 2024</p>
             </div>
             <p className="text-muted text-sm mb-3">Cognizant</p>
             <ul className="list-disc list-outside ml-5 space-y-2 text-foreground/90 text-sm leading-relaxed">
               <li>
-                Built production-grade data and analytics pipelines in Python and
-                PySpark/Spark SQL across 20+ heterogeneous sources, improving
-                ingestion latency by 40% and query performance by 25%.
+                Designed and optimised <strong>end-to-end data pipelines</strong> (PySpark, Spark SQL)
+                across <strong>20+ heterogeneous sources</strong> to deliver <strong>clean, audit-ready
+                datasets</strong> for analytics and reporting; reduced ingestion latency by{" "}
+                <strong>40%</strong> and improved query performance by <strong>25%</strong>.
               </li>
               <li>
-                Implemented 100+ automated data-quality and integrity checks with
-                end-to-end lineage traceability, reducing downstream discrepancies
-                by 30%.
+                Implemented <strong>100+ automated data quality controls</strong> (completeness,
+                validity, reconciliation, anomaly/outlier checks) and <strong>data lineage</strong> checks
+                across ETL stages; reduced downstream discrepancies by <strong>30%</strong> and prevented{" "}
+                <strong>95%</strong> of issues pre-consumption, supporting reliable KPI and risk reporting.
               </li>
               <li>
-                Orchestrated end-to-end workflows using Apache Airflow, automating
-                80% of routine processing and sustaining 97% pipeline uptime.
+                Built and orchestrated <strong>Apache Airflow</strong> DAGs with{" "}
+                <strong>SLA monitoring</strong>, retries, alerting, and failure handling to run{" "}
+                <strong>time-sensitive batch workflows</strong>; automated <strong>80%</strong> of routine
+                processing and maintained <strong>97%</strong> uptime for business-critical analytics
+                pipelines.
+              </li>
+              <li>
+                Partnered with stakeholders to translate reporting requirements into{" "}
+                <strong>data definitions, business rules, and controls</strong>; produced{" "}
+                <strong>documentation</strong> for metric logic, validation rules, and pipeline runbooks
+                to improve governance and support audit/review processes.
               </li>
             </ul>
           </div>

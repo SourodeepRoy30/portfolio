@@ -49,7 +49,7 @@ export default function Nav() {
             <a
               key={link.href}
               href={link.href}
-              className="text-muted hover:text-accent hover:scale-110 transition-all duration-200 inline-block"
+              className="text-muted hover:text-accent hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(79,168,255,0.8)] transition-all duration-200 inline-block"
             >
               {link.label}
             </a>
@@ -73,7 +73,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="font-heading text-sm text-muted hover:text-accent hover:bg-white/[.04] transition-colors px-5 py-2.5"
+                className="font-heading text-sm text-muted hover:text-accent hover:bg-white/[.04] hover:drop-shadow-[0_0_8px_rgba(79,168,255,0.8)] transition-colors px-5 py-2.5"
               >
                 {link.label}
               </a>
