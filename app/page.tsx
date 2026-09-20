@@ -2,6 +2,7 @@ import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiPython, SiFastapi, SiTensorflow, SiPandas, SiMysql } from "react-icons/si";
 import { Cloud } from "lucide-react";
 import NetworkAnimation from "./components/NetworkAnimation";
+import SkillsGraph from "./components/SkillsGraph";
 
 export default function Home() {
   return (
@@ -196,30 +197,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className="min-h-screen flex items-center justify-center px-8">
-        <div className="max-w-3xl">
-          <h2 className="text-3xl mb-16 text-center">Skills</h2>
-          <div className="flex flex-wrap justify-center gap-10">
-            {[
-              { icon: SiPython, label: "Python" },
-              { icon: Cloud, label: "AWS" },
-              { icon: SiFastapi, label: "FastAPI" },
-              { icon: SiTensorflow, label: "TensorFlow" },
-              { icon: SiPandas, label: "Pandas" },
-              { icon: SiMysql, label: "SQL" },
-            ].map(({ icon: Icon, label }, i) => (
-              <div
-                key={label}
-                className="flex flex-col items-center gap-3 animate-[float_3s_ease-in-out_infinite]"
-                style={{ animationDelay: `${i * 0.3}s` }}
-              >
-                <div className="group w-20 h-20 rounded-full border border-border bg-white/[.02] flex items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:border-accent/40 hover:shadow-[0_15px_30px_-10px_rgba(94,234,212,0.25)]">
-                  <Icon size={32} className="text-foreground/80 group-hover:text-accent transition-colors" />
-                </div>
-                <span className="text-xs text-muted">{label}</span>
+      <section id="skills" className="min-h-screen px-8 py-24">
+        <h2 className="text-3xl mb-12 text-center">Skills</h2>
+
+        <div className="hidden md:block h-[900px] max-w-5xl mx-auto">
+          <SkillsGraph />
+        </div>
+
+        <div className="md:hidden max-w-3xl mx-auto grid grid-cols-1 gap-8">
+          {[
+            { title: "Core Programming & Foundations", skills: ["Python", "NumPy", "Pandas", "scikit-learn", "R", "C++", "Git", "Linux / CLI"] },
+            { title: "Machine Learning & Deep Learning", skills: ["PyTorch", "TensorFlow", "Neural Networks", "Transformers", "CNNs", "Regression", "Clustering", "Ensemble Methods", "Fine-tuning", "Optimization"] },
+            { title: "Generative AI & Modern Workflows", skills: ["Hugging Face Transformers", "LangChain", "LlamaIndex", "RAG", "Vector Embeddings", "Vector Search", "Context Engineering", "Agentic Workflows"] },
+            { title: "Data Engineering & APIs", skills: ["SQL", "PySpark", "Spark SQL", "Apache Airflow", "Data Cleaning", "Feature Engineering", "Data Quality/Lineage", "REST APIs", "FastAPI", "Flask"] },
+            { title: "Cloud & MLOps", skills: ["AWS SageMaker", "Docker", "Kubernetes", "Model Observability", "Drift Detection", "CI/CD"] },
+          ].map((category) => (
+            <div key={category.title} className="rounded-2xl border border-border bg-white/[.02] p-6">
+              <h3 className="text-lg mb-4 text-accent">{category.title}</h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
+                    {skill}
+                  </span>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
