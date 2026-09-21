@@ -209,8 +209,8 @@ export default function Home() {
             { title: "Core Programming & Foundations", skills: ["Python", "NumPy", "Pandas", "scikit-learn", "R", "C++", "Git", "Linux / CLI"] },
             { title: "Machine Learning & Deep Learning", skills: ["PyTorch", "TensorFlow", "Neural Networks", "Transformers", "CNNs", "Regression", "Clustering", "Ensemble Methods", "Fine-tuning", "Optimization"] },
             { title: "Generative AI & Modern Workflows", skills: ["Hugging Face Transformers", "LangChain", "LlamaIndex", "RAG", "Vector Embeddings", "Vector Search", "Context Engineering", "Agentic Workflows"] },
-            { title: "Data Engineering & APIs", skills: ["SQL", "PySpark", "Spark SQL", "Apache Airflow", "Data Cleaning", "Feature Engineering", "Data Quality/Lineage", "REST APIs", "FastAPI", "Flask"] },
-            { title: "Cloud & MLOps", skills: ["AWS SageMaker", "Docker", "Kubernetes", "Model Observability", "Drift Detection", "CI/CD"] },
+            { title: "Data Engineering & APIs", skills: ["SQL", "PySpark", "Spark SQL", "Apache Airflow", "REST APIs", "FastAPI", "Flask"] },
+            { title: "Cloud & MLOps", skills: ["AWS SageMaker", "Docker", "Kubernetes"] },
           ].map((category) => (
             <div key={category.title} className="rounded-2xl border border-border bg-white/[.02] p-6">
               <h3 className="text-lg mb-4 text-accent">{category.title}</h3>

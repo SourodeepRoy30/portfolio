@@ -21,12 +21,12 @@ const CATEGORIES = [
   {
     title: "Data Engineering & APIs",
     pos: { x: 0.20, y: 0.82 },
-    skills: ["SQL", "PySpark", "Spark SQL", "Apache Airflow", "Data Cleaning", "Feature Eng.", "REST API", "FastAPI", "Flask"],
+    skills: ["SQL", "PySpark", "Spark SQL", "Apache Airflow", "REST API", "FastAPI", "Flask"],
   },
   {
     title: "Cloud & MLOps",
     pos: { x: 0.78, y: 0.84 },
-    skills: ["AWS SageMaker", "Docker", "Kubernetes", "Observability", "Drift Detection", "CI/CD"],
+    skills: ["AWS SageMaker", "Docker", "Kubernetes"],
   },
 ];
 
@@ -51,9 +51,15 @@ export default function SkillsGraph() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
-
+    let width = canvas.offsetWidth;
+    let height = canvas.offsetHeight;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.scale(dpr, dpr);
+    
     let nodes: Node[] = [];
     let lines: { from: Node; to: Node }[] = [];
 
@@ -163,8 +169,14 @@ export default function SkillsGraph() {
 
     function handleResize() {
       if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.scale(dpr, dpr);
       layout();
     }
     window.addEventListener("resize", handleResize);
