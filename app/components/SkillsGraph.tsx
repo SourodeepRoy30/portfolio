@@ -168,7 +168,7 @@ export default function SkillsGraph() {
     animationId = requestAnimationFrame(draw);
 
     function handleResize() {
-      if (!canvas) return;
+      if (!canvas || !ctx) return;
       width = canvas.offsetWidth;
       height = canvas.offsetHeight;
       const dpr = window.devicePixelRatio || 1;
