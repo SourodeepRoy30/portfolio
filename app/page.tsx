@@ -114,59 +114,21 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <a
-            href="#"
+            href="https://retail-customer-value.streamlit.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
           >
             <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
-              RAG Pipeline
+              Retail Customer Value
             </h3>
             <p className="text-muted text-sm leading-relaxed mb-5">
-              A retrieval-augmented generation system with hybrid search and
-              reranking, built end to end from ingestion to a live query interface.
+              An end-to-end machine learning pipeline predicting customer churn and
+              lifetime value for an online retailer, covering classification,
+              regression, and segmentation through to a deployed dashboard.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["Python", "FastAPI", "pgvector", "LangChain"].map((tag) => (
-                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </a>
-
-          <a
-            href="#"
-            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
-          >
-            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
-              Agentic Assistant
-            </h3>
-            <p className="text-muted text-sm leading-relaxed mb-5">
-              A multi-agent system that plans, delegates, and executes research
-              tasks autonomously, with full tool-use visibility.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Python", "LangGraph", "FastAPI", "Groq"].map((tag) => (
-                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </a>
-
-          <a
-            href="#"
-            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
-          >
-            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
-              Credit Risk Intelligence Suite
-            </h3>
-            <p className="text-muted text-sm leading-relaxed mb-5">
-              Extended a production credit default model on 1.3M Lending Club loans
-              with LLM signal extraction, SHAP-grounded memo generation, and a
-              macro-driven early warning system.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Python", "XGBoost", "SHAP", "FinBERT", "Ollama", "WoE/IV"].map((tag) => (
+              {["Python", "Churn Classification", "CLV Regression", "Customer Segmentation", "Streamlit"].map((tag) => (
                 <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
                   {tag}
                 </span>
