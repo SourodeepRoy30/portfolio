@@ -12,7 +12,7 @@ export default function Home() {
           <img
             src="/profile.jpg"
             alt="Sourodeep Roy"
-            className="w-64 h-64 rounded-full object-cover border border-border"
+            className="w-64 h-64 rounded-full object-cover border border-accent/40 animate-[glow-pulse_3s_ease-in-out_infinite]"
           />
           <div className="text-center sm:text-left">
             <h2 className="text-3xl mb-4">About Myself</h2>
@@ -112,7 +112,7 @@ export default function Home() {
       <section id="projects" className="min-h-screen px-8 py-24 max-w-3xl mx-auto">
         <h2 className="text-3xl mb-12">Projects</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <a
             href="https://retail-customer-value.streamlit.app"
             target="_blank"
@@ -137,19 +137,22 @@ export default function Home() {
           </a>
 
           <a
-            href="#"
+            href="https://github.com/SourodeepRoy30/acdgarch-intraday-risk"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
           >
             <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
               Intraday Volatility & Market Risk Forecasting
             </h3>
             <p className="text-muted text-sm leading-relaxed mb-5">
-              MSc dissertation (Distinction) modelling trade arrival intensity via
-              Weibull ACD to improve intraday volatility forecasting and tail-risk
-              calibration over standard GARCH.
+              MSc dissertation (Distinction, 80%) modelling trade arrival intensity with
+              a Weibull ACD framework to produce intensity-adjusted GARCH volatility
+              forecasts. Cut out-of-sample MSE by 75 to 80% versus raw-return GARCH, with VaR/ES
+              backtests passing across all evaluation configurations.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["R", "Weibull ACD", "GARCH", "VaR/ES Backtesting"].map((tag) => (
+              {["R", "Time Series Analysis", "Weibull ACD", "GARCH", "VaR/ES Backtesting"].map((tag) => (
                 <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
                   {tag}
                 </span>
