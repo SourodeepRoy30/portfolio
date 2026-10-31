@@ -57,7 +57,12 @@ export default function NetworkAnimation() {
       ctx.clearRect(0, 0, width, height);
       const elapsed = now - start;
 
-      ctx.strokeStyle = "rgba(136, 134, 255, 0.12)";
+      const css = getComputedStyle(document.documentElement);
+      const accent = css.getPropertyValue("--accent").trim() || "#7aa7ff";
+      const foreground = css.getPropertyValue("--foreground").trim() || "#ece8df";
+
+      ctx.strokeStyle = accent;
+      ctx.globalAlpha = 0.2;
       ctx.lineWidth = 1;
       for (const conn of connections) {
         ctx.beginPath();
@@ -66,21 +71,23 @@ export default function NetworkAnimation() {
         ctx.stroke();
       }
 
+      ctx.fillStyle = accent;
       for (const conn of connections) {
         const t = ((elapsed + conn.offset) % conn.duration) / conn.duration;
         const px = conn.from.x + (conn.to.x - conn.from.x) * t;
         const py = conn.from.y + (conn.to.y - conn.from.y) * t;
         const fade = Math.sin(t * Math.PI);
 
-        ctx.fillStyle = `rgba(178, 176, 255, ${fade})`;
+        ctx.globalAlpha = fade;
         ctx.beginPath();
         ctx.arc(px, py, 2.5, 0, Math.PI * 2);
         ctx.fill();
       }
 
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = foreground;
       for (const layer of layers) {
         for (const node of layer) {
-          ctx.fillStyle = "#e8e6e1";
           ctx.beginPath();
           ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
           ctx.fill();

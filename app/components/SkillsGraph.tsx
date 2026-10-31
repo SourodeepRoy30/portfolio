@@ -59,7 +59,7 @@ export default function SkillsGraph() {
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
     ctx.scale(dpr, dpr);
-    
+
     let nodes: Node[] = [];
     let lines: { from: Node; to: Node }[] = [];
 
@@ -126,12 +126,17 @@ export default function SkillsGraph() {
       const t = (now - start) / 1000;
       ctx.clearRect(0, 0, width, height);
 
+      const css = getComputedStyle(document.documentElement);
+      const accent = css.getPropertyValue("--accent").trim() || "#7aa7ff";
+      const foreground = css.getPropertyValue("--foreground").trim() || "#ece8df";
+
       for (const node of nodes) {
         node.x = node.baseX + Math.sin(t * node.freq + node.phase) * 5;
         node.y = node.baseY + Math.cos(t * node.freq * 0.8 + node.phase) * 5;
       }
 
-      ctx.strokeStyle = "rgba(79, 168, 255, 0.15)";
+      ctx.strokeStyle = accent;
+      ctx.globalAlpha = 0.25;
       ctx.lineWidth = 1;
       for (const line of lines) {
         ctx.beginPath();
@@ -139,15 +144,17 @@ export default function SkillsGraph() {
         ctx.lineTo(line.to.x, line.to.y);
         ctx.stroke();
       }
+      ctx.globalAlpha = 1;
 
       for (const node of nodes) {
-        ctx.fillStyle = node.isHub ? "#4fa8ff" : "#eaf2ff";
+        ctx.fillStyle = node.isHub ? accent : foreground;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.isHub ? 5 : 3, 0, Math.PI * 2);
         ctx.fill();
 
         ctx.font = node.isHub ? "bold 13px sans-serif" : "11px sans-serif";
-        ctx.fillStyle = node.isHub ? "#4fa8ff" : "rgba(234, 242, 255, 0.75)";
+        ctx.fillStyle = node.isHub ? accent : foreground;
+        ctx.globalAlpha = node.isHub ? 1 : 0.8;
 
         const offset = node.isHub ? 14 : 9;
         if (node.labelSide === "right") {
@@ -160,6 +167,7 @@ export default function SkillsGraph() {
           ctx.textAlign = "center";
           ctx.fillText(node.label, node.x, node.y - offset - 4);
         }
+        ctx.globalAlpha = 1;
       }
 
       animationId = requestAnimationFrame(draw);

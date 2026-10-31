@@ -4,6 +4,31 @@ import { Cloud } from "lucide-react";
 import NetworkAnimation from "./components/NetworkAnimation";
 import SkillsGraph from "./components/SkillsGraph";
 
+const PROJECTS = [
+  {
+    label: "Applied machine learning",
+    title: "Retail Customer Value",
+    takeaway:
+      "Can churn and lifetime value be predicted for an online retailer, end to end?",
+    description:
+      "An end-to-end machine learning pipeline covering churn classification, lifetime value regression and customer segmentation, deployed as an interactive dashboard.",
+    tags: ["Python", "Churn Classification", "CLV Regression", "Customer Segmentation", "Streamlit"],
+    href: "https://retail-customer-value.streamlit.app",
+    linkLabel: "Open the live app",
+  },
+  {
+    label: "MSc dissertation, 2025",
+    title: "Intraday Volatility & Market Risk Forecasting",
+    takeaway:
+      "Does modelling trade arrival intensity sharpen intraday volatility forecasts?",
+    description:
+      "Distinction (80%). A Weibull ACD framework produces intensity-adjusted GARCH forecasts, cutting out-of-sample MSE by 75 to 80% versus raw-return GARCH, with VaR/ES backtests passing across all evaluation configurations.",
+    tags: ["R", "Time Series Analysis", "Weibull ACD", "GARCH", "VaR/ES Backtesting"],
+    href: "https://github.com/SourodeepRoy30/acdgarch-intraday-risk",
+    linkLabel: "View the code on GitHub",
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex flex-col">
@@ -12,7 +37,7 @@ export default function Home() {
           <img
             src="/profile.jpg"
             alt="Sourodeep Roy"
-            className="w-64 h-64 rounded-full object-cover border border-accent/40 animate-[glow-pulse_3s_ease-in-out_infinite]"
+            className="w-64 h-64 rounded-full object-cover border border-accent/40"
           />
           <div className="text-center sm:text-left">
             <h2 className="text-3xl mb-4">About Myself</h2>
@@ -41,7 +66,7 @@ export default function Home() {
           </a>
         </div>
         <div className="mb-12">
-          <h3 className="text-xl mb-6 text-accent">Education</h3>
+          <h3 className="text-2xl mb-6 text-accent">Education</h3>
 
           <div className="mb-8">
             <div className="flex justify-between flex-wrap gap-2">
@@ -71,7 +96,7 @@ export default function Home() {
         </div>
 
         <div className="mb-12">
-          <h3 className="text-xl mb-6 text-accent">Professional Experience</h3>
+          <h3 className="text-2xl mb-6 text-accent">Professional Experience</h3>
           <div>
             <div className="flex justify-between flex-wrap gap-2">
               <p className="font-medium">Programmer Analyst [<span className="font-bold text-accent">AI & Analytics</span>]</p>
@@ -108,57 +133,33 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <section id="projects" className="min-h-screen px-8 py-24 max-w-3xl mx-auto">
         <h2 className="text-3xl mb-12">Projects</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <a
-            href="https://retail-customer-value.streamlit.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
-          >
-            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
-              Retail Customer Value
-            </h3>
-            <p className="text-muted text-sm leading-relaxed mb-5">
-              An end-to-end machine learning pipeline predicting customer churn and
-              lifetime value for an online retailer, covering classification,
-              regression, and segmentation through to a deployed dashboard.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Python", "Churn Classification", "CLV Regression", "Customer Segmentation", "Streamlit"].map((tag) => (
-                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </a>
-
-          <a
-            href="https://github.com/SourodeepRoy30/acdgarch-intraday-risk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block rounded-2xl border border-border bg-white/[.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(94,234,212,0.25)] hover:border-accent/40"
-          >
-            <h3 className="text-xl mb-3 group-hover:text-accent transition-colors">
-              Intraday Volatility & Market Risk Forecasting
-            </h3>
-            <p className="text-muted text-sm leading-relaxed mb-5">
-              MSc dissertation (Distinction, 80%) modelling trade arrival intensity with
-              a Weibull ACD framework to produce intensity-adjusted GARCH volatility
-              forecasts. Cut out-of-sample MSE by 75 to 80% versus raw-return GARCH, with VaR/ES
-              backtests passing across all evaluation configurations.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["R", "Time Series Analysis", "Weibull ACD", "GARCH", "VaR/ES Backtesting"].map((tag) => (
-                <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/70">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </a>
+        <div className="border-b border-border">
+          {PROJECTS.map((p) => (
+            <a
+              key={p.title}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block border-t border-border py-10"
+            >
+              <p className="font-mono text-sm text-muted mb-2">{p.label}</p>
+              <h3 className="text-2xl md:text-3xl leading-snug mb-3 underline decoration-transparent underline-offset-4 decoration-1 group-hover:decoration-current transition-colors">
+                {p.title}
+              </h3>
+              <p className="text-lg text-foreground/80 mb-3">{p.takeaway}</p>
+              <p className="text-sm text-muted leading-relaxed mb-4">
+                {p.description}
+              </p>
+              <p className="text-sm text-muted">{p.tags.join(", ")}</p>
+              <span className="inline-block mt-4 text-sm underline underline-offset-4">
+                {p.linkLabel}
+              </span>
+            </a>
+          ))}
         </div>
       </section>
 
@@ -177,7 +178,7 @@ export default function Home() {
             { title: "Data Engineering & APIs", skills: ["SQL", "PySpark", "Spark SQL", "Apache Airflow", "REST APIs", "FastAPI", "Flask"] },
             { title: "Cloud & MLOps", skills: ["AWS SageMaker", "Docker", "Kubernetes"] },
           ].map((category) => (
-            <div key={category.title} className="rounded-2xl border border-border bg-white/[.02] p-6">
+            <div key={category.title} className="rounded-2xl border border-border bg-surface p-6">
               <h3 className="text-lg mb-4 text-accent">{category.title}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
@@ -209,7 +210,7 @@ export default function Home() {
       </section>
       <section className="h-64 md:h-96">
         <NetworkAnimation />
-      </section>      
+      </section>
       <section id="socials" className="min-h-screen flex items-center justify-center px-8">
         <div className="text-center">
           <h2 className="text-3xl mb-10">Get in touch</h2>

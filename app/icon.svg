@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .icon { fill: none; stroke: #000; stroke-width: 3.2; }
+    @media (prefers-color-scheme: dark) { .icon { stroke: #fff; } }
+  </style>
+  <g class="icon">
+    <line x1="28.16" y1="25.38" x2="17.81" y2="12.24"/>
+    <line x1="35.94" y1="25.47" x2="49.08" y2="9.53"/>
+    <line x1="25.80" y1="30.25" x2="10.50" y2="30.25"/>
+    <line x1="38.20" y1="30.25" x2="56.00" y2="30.25"/>
+    <line x1="28.27" y1="35.20" x2="17.39" y2="49.66"/>
+    <line x1="32.00" y1="36.45" x2="32.00" y2="51.20"/>
+    <line x1="35.92" y1="35.06" x2="48.66" y2="50.68"/>
+    <circle cx="32.0" cy="30.25" r="6.2"/>
+    <circle cx="16.2" cy="10.2" r="2.6"/>
+    <circle cx="51.5" cy="6.6" r="3.8"/>
+    <circle cx="6.7" cy="30.25" r="3.8"/>
+    <circle cx="58.6" cy="30.25" r="2.6"/>
+    <circle cx="15.1" cy="52.7" r="3.8"/>
+    <circle cx="32.0" cy="56.2" r="5.0"/>
+    <circle cx="50.3" cy="52.7" r="2.6"/>
+  </g>
+</svg>
